@@ -36,10 +36,10 @@ namespace Dijkstra
             galaxyMap.SetConnectionBothWays("H", "J", 4);
 
             // Print the galaxy to the console
-            //Console.WriteLine(galaxyMap.ToString());
+            // Console.WriteLine(galaxyMap.ToString());
 
-            // Get the shortest path from C to A
-            galaxyMap.GetShortestPath("C","A");
+            // Get the shortest path
+            galaxyMap.GetShortestPath("C","F");
         }
     }
 }
