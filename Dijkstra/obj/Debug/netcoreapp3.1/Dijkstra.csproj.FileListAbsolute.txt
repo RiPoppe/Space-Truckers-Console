@@ -1,0 +1,14 @@
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\bin\Debug\netcoreapp3.1\Dijkstra.exe
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\bin\Debug\netcoreapp3.1\Dijkstra.deps.json
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\bin\Debug\netcoreapp3.1\Dijkstra.runtimeconfig.json
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\bin\Debug\netcoreapp3.1\Dijkstra.runtimeconfig.dev.json
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\bin\Debug\netcoreapp3.1\Dijkstra.dll
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\bin\Debug\netcoreapp3.1\Dijkstra.pdb
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.csproj.AssemblyReference.cache
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.AssemblyInfoInputs.cache
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.AssemblyInfo.cs
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.csproj.CoreCompileInputs.cache
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.dll
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.pdb
+C:\Users\User\Programming\CSharp\Dijkstra\Dijkstra\obj\Debug\netcoreapp3.1\Dijkstra.genruntimeconfig.cache
