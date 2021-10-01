@@ -39,7 +39,7 @@ namespace Dijkstra
             // Console.WriteLine(galaxyMap.ToString());
 
             // Get the shortest path
-            galaxyMap.GetShortestPath("C","F");
+            galaxyMap.GetShortestPath("C","G");
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Collections;
+
 
 namespace Dijkstra.Models
 {
@@ -67,24 +69,30 @@ namespace Dijkstra.Models
             Planet currentPlanet = FindPlanet(from);
             currentPlanet.Visited = true;
             currentPlanet.WeightShortestPath = 0;
-
-            // While the current planet isn't the destination keep checking if the weight of the current planet + the connection is lower than the current weight of the connected planet. If it is lower, then adjust the weight and change the planet from which this new weight originated. After every connection is handled check which planet was not visited yet and has the lowest weight. Hnadle this planet in the next iteration.
-            while (currentPlanet != destination)
+            if (destination != null && currentPlanet != null)
             {
-                HandleCurrentPlanet(currentPlanet);
-
-                currentPlanet = DetermineNextPlanetToCheck(currentPlanet);
-                currentPlanet.Visited = true;
 
 
+                // While the current planet isn't the destination keep checking if the weight of the current planet + the connection is lower than the current weight of the connected planet. If it is lower, then adjust the weight and change the planet from which this new weight originated. After every connection is handled check which planet was not visited yet and has the lowest weight. Hnadle this planet in the next iteration.
+                while (currentPlanet != destination)
+                {
+                    HandleCurrentPlanet(currentPlanet);
+
+                    currentPlanet = DetermineNextPlanetToCheck(currentPlanet);
+                    currentPlanet.Visited = true;
+
+
+                }
+                // Print all the planets with their weights and previous planet
+                // PrintTheWeightOfEachPlanet(planets);
+
+                // Print the shortest route
+                StringBuilder path = currentPlanet.PrintPath(new StringBuilder());
+                Console.WriteLine("\nThe shortest path = " + path.ToString().Substring(0, path.Length - 3));
+            } else
+            {
+                Console.WriteLine("The input was not valid");
             }
-            // Print all the planets with their weights and previous planet
-            // PrintTheWeightOfEachPlanet(planets);
-            
-            // Print the shortest route
-            StringBuilder path = currentPlanet.PrintPath(new StringBuilder());
-            Console.WriteLine("\nThe shortest path = " + path.ToString().Substring(0,path.Length-3));
-
             // Reset the state for the next shortest path request
             ResetShortestPath();
         }
