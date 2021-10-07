@@ -1,57 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Dijkstra.Models
 {
     internal class Planet
     {
         // Variables that represent the planet and its connections
-        private string name;
-        private List<Planet> connectedPlanets = new List<Planet>();
-        private List<int> connectedPlanetWeights = new List<int>();
+        private string _name;
+
+
+        private List<Connection> connections = new List<Connection>();
 
         // Variables used by dijkstra's algorithm
-        private Planet previousPlanetOnShortestRoute = null;
-        private int weightShortestPath = int.MaxValue;
-        private bool visited = false;
+        private Planet _previousPlanet = null;
+
+        private int _pathWeight = int.MaxValue;
+        private bool _visited = false;
 
         // Constructor
         public Planet(string name)
         {
             if (!String.IsNullOrEmpty(name))
             {
-                this.name = name;
-            } else
+                this._name = name;
+            }
+            else
             {
-                this.name = "default";
+                this._name = "default";
             }
         }
 
         // Get and Set methods of the above variables
-        public string Name { get { return name; } }
-        public bool Visited { get { return visited; } set { this.visited = value; } }
-        public int WeightShortestPath { get { return weightShortestPath; } set { this.weightShortestPath = value; } }
-        public Planet PreviousPlanetOnShortestRoute { get { return previousPlanetOnShortestRoute; } set { this.previousPlanetOnShortestRoute = value; } }
+        public string Name { get { return _name; } }
 
-        public List<Planet> ConnectedPlanets { get {return connectedPlanets; } }
-        public List<int> ConnectedPlanetWeights { get { return connectedPlanetWeights; } }
+        public bool Visited { get { return _visited; } set { this._visited = value; } }
+        public int PathWeight { get { return _pathWeight; } set { this._pathWeight = value; } }
+        public Planet PreviousPlanet { get { return _previousPlanet; } set { this._previousPlanet = value; } }
+
+        public List<Connection> ConnectedPlanets { get { return connections; } }
 
         // Resets the variables used by Dijkstra's algorithm to their defaults
         public void ResetShortestPath()
         {
-            previousPlanetOnShortestRoute = null;
-            weightShortestPath = int.MaxValue;
-            visited = false;
+            _previousPlanet = null;
+            _pathWeight = int.MaxValue;
+            _visited = false;
         }
 
         // Adds the planet to the connectedplanets and weights if it isn't already there
         public void SetConnection(Planet planet, int weight)
         {
-            if (!connectedPlanets.Contains(planet))
+            if (!connections.Any(plan => plan.GetPlanet().Equals(planet)))
             {
-                connectedPlanets.Add(planet);
-                connectedPlanetWeights.Add(weight);
+                connections.Add(new Connection(planet,weight));
             }
             else
             {
@@ -60,23 +63,24 @@ namespace Dijkstra.Models
         }
 
         // Add the previous planet in front of the string in path. If the previous planet is null, then do nothing, since it is the starting planet.
-        public StringBuilder PrintPath(StringBuilder path) 
+        public StringBuilder PrintPath(StringBuilder path)
         {
-            path.Insert(0,Name+ " > ");
-            if (previousPlanetOnShortestRoute!=null)
+            path.Insert(0, Name + " > ");
+            if (_previousPlanet != null)
             {
-                previousPlanetOnShortestRoute.PrintPath(path);
+                _previousPlanet.PrintPath(path);
             }
             return path;
         }
+
         // Makes a string of the planet together with its connections and the weights of these connections
         public override string ToString()
         {
             StringBuilder answer = new StringBuilder(Name);
-            answer.Append(":\tThe amount of connections = " + connectedPlanets.Count);
-            for (int i = 0; i < connectedPlanets.Count; i++)
+            answer.Append(":\tThe amount of connections = " + connections.Count);
+            for (int i = 0; i < connections.Count; i++)
             {
-                answer.Append("\n---" + connectedPlanets[i].Name + "\t" + connectedPlanetWeights[i]);
+                answer.Append("\n---" + connections[i].GetPlanet().Name + "\t" + connections[i].getWeight());
             }
 
             return answer.ToString();
