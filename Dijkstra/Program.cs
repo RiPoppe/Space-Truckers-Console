@@ -2,9 +2,9 @@
 
 namespace Dijkstra
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Models.GalaxyMap galaxyMap = new Models.GalaxyMap();
 
@@ -36,10 +36,10 @@ namespace Dijkstra
             galaxyMap.SetConnectionBothWays("H", "J", 4);
 
             // Print the galaxy to the console
-            // Console.WriteLine(galaxyMap.ToString());
+            Console.WriteLine(galaxyMap.ToString());
 
             // Get the shortest path
-            galaxyMap.GetShortestPath("C","G");
+            galaxyMap.GetShortestPath("H", "A");
         }
     }
 }
